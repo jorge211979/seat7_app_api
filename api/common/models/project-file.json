@@ -1,0 +1,59 @@
+{
+  "name": "project_file",
+  "plural": "project_files",
+  "base": "BasePersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": true,
+  "replaceOnPUT": false,
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "project_id": {
+      "type": "number",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "file_url": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "project": {
+      "type": "belongsTo",
+      "model": "project",
+      "foreignKey": "project_id",
+      "options": {
+        "disableInclude": true
+      }
+    },
+    "submission_lists": {
+      "type": "hasMany",
+      "model": "project_submission_list_files",
+      "foreignKey": "file_id",
+      "options": {
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

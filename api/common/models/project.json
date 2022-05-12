@@ -1,0 +1,117 @@
+{
+  "name": "project",
+  "plural": "projects",
+  "base": "BasePersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": true,
+  "replaceOnPUT": false,
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "company_id": {
+      "type": "number",
+      "required": true
+    },
+    "created_at": {
+      "type": "date",
+      "skipUpdate": true,
+      "skipCreate": true
+    },
+    "updated_at": {
+      "type": "date",
+      "skipUpdate": true,
+      "skipCreate": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "logo_url": {
+      "type": "string"
+    },
+    "company_name": {
+      "type": "string"
+    },
+    "company_description": {
+      "type": "string"
+    },
+    "is_template": {
+      "type": "boolean",
+      "default": false
+    },
+    "sent_to_publishers": {
+      "type": "boolean",
+      "default": false,
+      "skipUpdate": true,
+      "skipCreate": true
+    },
+    "project_type": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "company": {
+      "type": "belongsTo",
+      "model": "company",
+      "foreignKey": "company_id",
+      "options": {
+        "disableInclude": true
+      }
+    },
+    "banner": {
+      "type": "hasOne",
+      "model": "project_banner",
+      "foreignKey": "project_id"
+    },
+    "files": {
+      "type": "hasMany",
+      "model": "project_file",
+      "foreignKey": "project_id"
+    },
+    "submission-lists": {
+      "type": "hasMany",
+      "model": "project_submission_list",
+      "foreignKey": "project_id",
+      "options": {
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "projectSubmissionListContact",
+      "permission": "ALLOW",
+      "property": [
+        "findById",
+        "__get__banner",
+        "getSubmissionListFiles"
+      ]
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "count"
+      ]
+    }
+  ],
+  "methods": {}
+}

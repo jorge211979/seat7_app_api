@@ -1,0 +1,34 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "postgres": {
+    "host": "seat7-postgres-prod.c6zhbpa8uorz.us-east-1.rds.amazonaws.com",
+    "port": 5432,
+    "url": false,
+    "database": "seat7_application",
+    "password": "A(z)6JH)@J#9wyYf",
+    "name": "postgres",
+    "user": "usr_seat7_application",
+    "connector": "postgresql"
+  },
+  "Email": {
+    "name": "Email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "type": "OAuth2",
+          "user": "gamedev@seat7entertainment.com",
+          "serviceClient": "117035632528162281495",
+          "privateKey": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCrmxuM2Ip2Cf6v\nwFWCklOEkQ5vwOucEiKqBWHhlITve00bY2fJgZVSJzSteHYorfICscCjktbNUbT5\ncnksoxYaq+39+NsIrwfW4gTWk0VOwDa0yZRHj3DgVRgnQqe5E7+SBa4p4xQXYwtK\nSk1xXVtizxpbdQmNOXMBR6UG9bTpOF9NetsA9tkRBCEOceSQiNxBNyte5nR9hq3X\nwcp+fYcDa4fJDPOYG6+z5WAWru6W/2PZsd2YfASb7YO0wUReP1WbbdFuW/updaPe\nLAOOUxsHRaT3/cN9WZcw3PArJbBC1lq6l7UXvMLBscLVu73cDtE3MiMLn61qWfnD\nYyas02ktAgMBAAECggEADoBC6bn6qVLa5LsZ/riiuhcP4z2oKz4VE8z0on1MZnhC\n4ceao5qBpbmOaAI/6dwZEUU4BBqKcDsxUcrslmsJmSNiLw3yZF92CCB9TCyRtL/l\nX42RLCLg5PQL4HVveuJCU/KK7xszPW6vK43v0V6UNFtP3N6c+gQaxcbqGRZ2PSbU\nj+61OO7IBbSwExMFJZD/xFkrkzDdB3C2Do87v4yJa+3iUQlwFNUerxXj5J7M1t8d\nIeEK6fIKbVc8+5+rgdFhNmX2YFE9UMMTVpAWx77ONSkC3KW8P/yw0uYcwPAlQLx2\nG6xxri8M9cDkHaHXFticUv4caUOMKnphtNLc3FvBOQKBgQDxYZSkVcNHceUocvTb\nti18Dg+eKQZhdP3N0cREiC2cOQQKmNddtcm3XHlQwPEob4tcYLbJ3nN5Vzc6GOvu\n7w8RHfk3KxaKHn77bzdvOIgD1KMYMg7lQUIz4T2DFJGUfBl+bGKE0+msAWzLzUnk\niQKZ+TJUV3v9makGXNkvupDbnwKBgQC1/7e/yro6O1UQ10EdiP4HqSwtgXsbP17s\n0MVMVAukgWYu7mUN39xkr5hMm2sN6YMw8A0RjftmCe2PF8gPkG4psG9MCQtO34oF\npFOmjkz88WZczmk7t3iz2xb7mdGsPP9LbT8EsOJiD/hUBAJRewA8QMCwr4TJs1vL\nOHiwz6eHswKBgDZrEG7IIwFdbRNkb02FUdXQ+bZne1fHX1zieMQWi2nX9NBKyusG\ni9Z506PgC75Y/2sxJqR2MURe5EWFztMMNDJgtom4fhlfbLNUzIOXlBqA+s/+oRsQ\nTlOR6SM/JN7752d4GfHmMJ0lqRh9TLZoKRz7cFxRaNOwq8mSbyhygCvzAoGBAIkG\nVJPj0D4TecJKLk5MW+XsqsRAHi2vkop9zG3hQTrD6ekft5mwl8B+rA3RXdKFoy5v\nLYev/D0g8GixoQCG30on+kOm84qYptQEmq5lqPUv0r/A8F3zjr7rDuyzLLee3R8u\nyyl++5KVL4Qh2JT8JHs4zVq5ayJpFY11oPiN/zYdAoGAZvMqq8vUz5RItET0+pgp\njLD85BiwP9QXKz/zksibi5hrOammu8f3ERk8fhYFHA1cHA8RC9nYW8uRsgJW+PmB\niPRs6z+uh68Rw9gbRBSijAyyK1ow6MVpUqA2hxL/8Ks8UiRxuyuBIwotPHsqooWq\nq1ZUP4zk1RhXr77vMMu3pas=\n-----END PRIVATE KEY-----\n"
+        }
+      }
+    ]
+  }
+}

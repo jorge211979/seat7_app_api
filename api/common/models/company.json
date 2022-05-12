@@ -1,0 +1,159 @@
+{
+  "name": "company",
+  "plural": "companies",
+  "base": "BasePersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": true,
+  "replaceOnPUT": false,
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "app_user",
+      "foreignKey": "company_id",
+      "through": "user_company",
+      "keyThrough": "user_id",
+      "options": {
+        "disableInclude": true
+      }
+    },
+    "projects": {
+      "type": "hasMany",
+      "model": "project",
+      "foreignKey": "company_id"
+    },
+    "presses": {
+      "type": "hasMany",
+      "model": "company_press",
+      "foreignKey": "company_id",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "findById",
+        "exists",
+        "count",
+        "__get__projects",
+        "__count__projects",
+        "__findById__projects",
+        "__get__projects__files",
+        "__count__projects__files",
+        "__findById__projects__files",
+        "__get__projects__banner",
+        "__get__projects__submission-lists",
+        "__count__projects__submission-lists",
+        "__get__presses",
+        "__count__presses",
+        "__findById__presses",
+        "__get__presses__contacts",
+        "__count__presses__contacts",
+        "__findById__presses__contacts"
+      ]
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "__create__projects",
+        "__updateById__projects",
+        "__destroyById__projects",
+        "__create__projects__files",
+        "__updateById__projects__files",
+        "__destroyById__projects__files",
+        "deleteProjectBannerFile",
+        "upsertProjectBanner",
+        "uploadProjectBanner",
+        "uploadProjectLogo",
+        "__create__presses",
+        "__updateById__presses",
+        "__destroyById__presses",
+        "__create__presses__contacts",
+        "__updateById__presses__contacts",
+        "__destroyById__presses__contacts"
+      ]
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "company",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "findById",
+        "exists",
+        "count",
+        "__get__projects",
+        "__count__projects",
+        "__findById__projects",
+        "__get__projects__files",
+        "__count__projects__files",
+        "__findById__projects__files",
+        "__get__projects__banner",
+        "__get__projects__submission-lists",
+        "__count__projects__submission-lists",
+        "__get__presses",
+        "__count__presses",
+        "__findById__presses",
+        "__get__presses__contacts",
+        "__count__presses__contacts",
+        "__findById__presses__contacts"
+      ]
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "company",
+      "permission": "ALLOW",
+      "property": [
+        "__create__projects",
+        "__updateById__projects",
+        "__destroyById__projects",
+        "__create__projects__files",
+        "__updateById__projects__files",
+        "__destroyById__projects__files",
+        "deleteProjectBannerFile",
+        "upsertProjectBanner",
+        "uploadProjectBanner",
+        "uploadProjectLogo",
+        "__create__presses",
+        "__updateById__presses",
+        "__destroyById__presses",
+        "__create__presses__contacts",
+        "__updateById__presses__contacts",
+        "__destroyById__presses__contacts"
+      ]
+    }
+  ],
+  "methods": {}
+}

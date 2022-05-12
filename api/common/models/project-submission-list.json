@@ -1,0 +1,152 @@
+{
+  "name": "project_submission_list",
+  "plural": "project_submission_lists",
+  "base": "BasePersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": true,
+  "replaceOnPUT": false,
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "project_id": {
+      "type": "number",
+      "required": true
+    },
+    "subject": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "date",
+      "skipUpdate": true,
+      "skipCreate": true
+    },
+    "sent_at": {
+      "type": "date",
+      "skipCreate": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "project": {
+      "type": "belongsTo",
+      "model": "project",
+      "foreignKey": "project_id"
+    },
+    "contacts": {
+      "type": "hasMany",
+      "model": "project_submission_list_contact",
+      "foreignKey": "list_id"
+    },
+    "files": {
+      "type": "hasMany",
+      "model": "project_submission_list_files",
+      "foreignKey": "list_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "findById",
+        "exists",
+        "count",
+        "__get__contacts",
+        "__count__contacts",
+        "__findById__contacts",
+        "__exists__contacts",
+        "__get__files",
+        "__count__files",
+        "__findById__files"
+      ]
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create",
+        "patchAttributes",
+        "deleteById",
+        "__create__contacts",
+        "__updateById__contacts",
+        "__destroyById__contacts",
+        "__create__files",
+        "__updateById__files",
+        "__destroyById__files"
+      ]
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "send"
+      ]
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "company",
+      "permission": "ALLOW",
+      "property": [
+        "findById",
+        "exists",
+        "__get__contacts",
+        "__count__contacts",
+        "__findById__contacts",
+        "__exists__contacts",
+        "__get__files",
+        "__count__files",
+        "__findById__files"
+      ]
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "company",
+      "permission": "ALLOW",
+      "property": [
+        "create",
+        "patchAttributes",
+        "deleteById",
+        "__create__contacts",
+        "__updateById__contacts",
+        "__destroyById__contacts",
+        "__create__files",
+        "__updateById__files",
+        "__destroyById__files"
+      ]
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "company",
+      "permission": "ALLOW",
+      "property": [
+        "send"
+      ]
+    }
+  ],
+  "methods": {}
+}

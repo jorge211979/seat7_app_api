@@ -1,0 +1,37 @@
+{
+  "name": "user_company",
+  "plural": "user_companies",
+  "base": "BasePersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "replaceOnPUT": false,
+  "properties": {
+    "user_id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
+    "company_id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "app_user",
+      "foreignKey": "user_id"
+    },
+    "company": {
+      "type": "belongsTo",
+      "model": "company",
+      "foreignKey": "company_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,60 @@
+{
+  "name": "project_submission_list_contact",
+  "base": "BasePersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": true,
+  "hidden": [
+    "token",
+    "token_ttl"
+  ],
+  "replaceOnPUT": false,
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "list_id": {
+      "type": "number",
+      "required": true
+    },
+    "contact_type": {
+      "type": "string",
+      "required": true
+    },
+    "contact_id": {
+      "type": "number",
+      "required": true
+    },
+    "contact_email": {
+      "type": "string",
+      "required": true
+    },
+    "token": {
+      "type": "string",
+      "defaultFn": "uuidv4",
+      "skipUpdate": true
+    },
+    "token_ttl": {
+      "type": "number",
+      "default": 259200
+    },
+    "sent_at": {
+      "type": "date",
+      "skipCreate": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "list": {
+      "type": "belongsTo",
+      "model": "project_submission_list",
+      "foreignKey": "list_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

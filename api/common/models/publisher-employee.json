@@ -1,0 +1,40 @@
+{
+  "name": "publisher_employee",
+  "base": "BasePersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": true,
+  "replaceOnPUT": false,
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "office_post": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "publisher": {
+      "type": "belongsTo",
+      "model": "publisher",
+      "foreignKey": "publisher_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

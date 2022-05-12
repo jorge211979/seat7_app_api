@@ -1,0 +1,40 @@
+{
+  "name": "project_submission_list_files",
+  "base": "BasePersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": true,
+  "replaceOnPUT": false,
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "file_id": {
+      "type": "number",
+      "required": true
+    },
+    "list_id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "file": {
+      "type": "belongsTo",
+      "model": "project_file",
+      "foreignKey": "file_id"
+    },
+    "list": {
+      "type": "belongsTo",
+      "model": "project_submission_list",
+      "foreignKey": "list_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

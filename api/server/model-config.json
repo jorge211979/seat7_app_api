@@ -1,0 +1,103 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/base",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "realmRequired": false
+    }
+  },
+  "AccessToken": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "postgres",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "BasePersistedModel": {
+    "dataSource": "db",
+    "public": false
+  },
+  "app_user": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "company": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "user_company": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "publisher": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "publisher_employee": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "project": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "project_banner": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "project_file": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "project_submission_list": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "project_submission_list_contact": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "project_submission_list_files": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "mailer": {
+    "dataSource": "Email",
+    "public": false
+  },
+  "company_press": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "company_press_contact": {
+    "dataSource": "postgres",
+    "public": false
+  }
+}
